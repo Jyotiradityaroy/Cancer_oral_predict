@@ -44,4 +44,6 @@ def predict():
     return jsonify(label)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 10000))  # Default to 10000, but Render provides a port dynamically
+    app.run(host="0.0.0.0", port=port, debug=True)
